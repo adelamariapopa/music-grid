@@ -8,8 +8,8 @@ export default class App {
     initializeGrid(){
          this.grid = new Grid({
             rootId: 'grid-container',
-            // nbOfRows: 4,
-            // nbOfCells: 4,
+            nbOfRows: 10,
+            nbOfCells: 10,
             rowClass: 'grid-row',
             cellClass: 'grid-cell'
         });

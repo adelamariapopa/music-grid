@@ -1,14 +1,8 @@
-const calculator = [
-    ["1", "2", "3", " + "],
-    ["4", "5", "6", " - "],
-    ["7", "8", "9", " / "],
-    ["0", "C", "=", " * "],
-];
 export class Grid {
     constructor(options) {
         this.rootId = options.rootId;
-        this.nbOfRows = 4;
-        this.nbOfCells = 4;
+        this.nbOfRows = options.nbOfRows;
+        this.nbOfCells = options.nbOfRows;
         this.rowClass = options.rowClass;
         this.cellClass = options.cellClass;
         this.gridContainer = document.getElementById(this.rootId);
@@ -65,8 +59,8 @@ export class Grid {
     for(let i = 0; i<this.nbOfRows; i++){
         const row = document.createElement('div');
         row.classList.add(this.rowClass);
-        this.addCellsToRow(row, calculator[i]);
-        this.gridContainer.append(row);
+            this.addCellsToRow(row);
+            this.gridContainer.append(row);
         }
         const playBtn = document.createElement('div');
         this.addPlayBtn(); 
@@ -77,11 +71,11 @@ export class Grid {
         cell.classList.toggle('active');
     }
 
-    addCellsToRow(row, calculatorRow){
+    addCellsToRow(row){
         for(let j=0; j<this.nbOfCells; j++){
             const cell = document.createElement('div');
             cell.classList.add(this.cellClass);
-            cell.textContent = calculatorRow[j];
+            
             cell.addEventListener('click', () => {
                 this.toggleCellState(cell);
             });
