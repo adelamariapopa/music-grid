@@ -1,7 +1,6 @@
 export default class RightHand {
     constructor(grid) {
         this.grid = grid;
-        console.log(this.grid.cells);
     }
     isCellPressed(cell){
         const clientRect = cell.getBoundingClientRect();
